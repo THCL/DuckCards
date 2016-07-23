@@ -3,133 +3,9 @@ import TaskStatusColumn from './TaskStatusColumn';
 
 class Tasks extends React.Component {
   render() {
-    const tasks = [
-      {
-        title: 'To Do',
-        status: 'To Do',
-        dueDate: '10/10/10',
-        category: 'Front-End',
-        points: 20,
-        notes: 'create webpack config file',
-        owner: 'Heather',
-        creator: 'Someone else',
-        comments: [
-          {
-            user: 'Commenter1',
-            comment: 'Cool'
-          },
-          {
-            user: 'Commenter2',
-            comment: 'Cool'
-          }
-        ]
-      },
-
-      {
-        title: 'To Do',
-        status: 'To Do',
-        dueDate: '10/10/10',
-        category: 'Front-End',
-        points: 20,
-        notes: 'create webpack config file',
-        owner: 'Heather',
-        creator: 'Someone else',
-        comments: [
-          {
-            user: 'Commenter1',
-            comment: 'Cool'
-          },
-          {
-            user: 'Commenter2',
-            comment: 'Cool'
-          }
-        ]
-      },
-
-      {
-        title: 'In Progress',
-        status: 'In Progress',
-        dueDate: '10/10/10',
-        category: 'Front-End',
-        points: 20,
-        notes: 'create webpack config file',
-        owner: 'Heather',
-        creator: 'Someone else',
-        comments: [
-          {
-            user: 'Commenter1',
-            comment: 'Cool'
-          },
-          {
-            user: 'Commenter2',
-            comment: 'Cool'
-          }
-        ]
-      },
-
-      {
-        title: 'In Progress',
-        status: 'In Progress',
-        dueDate: '10/10/10',
-        category: 'Front-End',
-        points: 20,
-        notes: 'create webpack config file',
-        owner: 'Heather',
-        creator: 'Someone else',
-        comments: [
-          {
-            user: 'Commenter1',
-            comment: 'Cool'
-          },
-          {
-            user: 'Commenter2',
-            comment: 'Cool'
-          }
-        ]
-      },
-
-      {
-        title: 'Completed',
-        status: 'Completed',
-        dueDate: '10/10/10',
-        category: 'Front-End',
-        points: 20,
-        notes: 'create webpack config file',
-        owner: 'Heather',
-        creator: 'Someone else',
-        comments: [
-          {
-            user: 'Commenter1',
-            comment: 'Cool'
-          },
-          {
-            user: 'Commenter2',
-            comment: 'Cool'
-          }
-        ]
-      },
-
-      {
-        title: 'Completed',
-        status: 'Completed',
-        dueDate: '10/10/10',
-        category: 'Front-End',
-        points: 20,
-        notes: 'create webpack config file',
-        owner: 'Heather',
-        creator: 'Someone else',
-        comments: [
-          {
-            user: 'Commenter1',
-            comment: 'Cool'
-          },
-          {
-            user: 'Commenter2',
-            comment: 'Cool'
-          }
-        ]
-      }
-    ];
+    const tasks = this.props.task.then(function(data) {
+      return data.data;
+    })
 
     function filterTasks(tasks) {
       return tasks.reduce(function(memo, task) {
@@ -148,6 +24,8 @@ class Tasks extends React.Component {
       });
     };
 
+    console.log(tasks);
+
     const filteredTasks = filterTasks(tasks);
 
     const {todos, inProgress, completed} = filteredTasks;
@@ -163,3 +41,111 @@ class Tasks extends React.Component {
 }
 
 export default Tasks;
+
+
+// {
+//         title: 'To Do',
+//         status: 'To Do',
+//         dueDate: '10/10/10',
+//         category: 'Front-End',
+//         points: 20,
+//         notes: 'create webpack config file',
+//         owner: 'Heather',
+//         creator: 'Someone else',
+//         comments: [
+//           {
+//             user: 'Commenter1',
+//             comment: 'Cool'
+//           },
+//           {
+//             user: 'Commenter2',
+//             comment: 'Cool'
+//           }
+//         ]
+//       },
+
+//       {
+//         title: 'To Do',
+//         status: 'To Do',
+//         dueDate: '10/10/10',
+//         category: 'Front-End',
+//         points: 20,
+//         notes: 'create webpack config file',
+//         owner: 'Heather',
+//         creator: 'Someone else',
+//         comments: [
+//           {
+//             user: 'Commenter1',
+//             comment: 'Cool'
+//           },
+//           {
+//             user: 'Commenter2',
+//             comment: 'Cool'
+//           }
+//         ]
+//       },
+
+//       {
+//         title: 'In Progress',
+//         status: 'In Progress',
+//         dueDate: '10/10/10',
+//         category: 'Front-End',
+//         points: 20,
+//         notes: 'create webpack config file',
+//         owner: 'Heather',
+//         creator: 'Someone else',
+//         comments: [
+//           {
+//             user: 'Commenter1',
+//             comment: 'Cool'
+//           },
+//           {
+//             user: 'Commenter2',
+//             comment: 'Cool'
+//           }
+//         ]
+//       },
+
+//       {
+//         title: 'In Progress',
+//         status: 'In Progress',
+//         dueDate: '10/10/10',
+//         category: 'Front-End',
+//         points: 20,
+//         notes: 'create webpack config file',
+//         owner: 'Heather',
+//         creator: 'Someone else',
+//         comments: [
+//           {
+//             user: 'Commenter1',
+//             comment: 'Cool'
+//           },
+//           {
+//             user: 'Commenter2',
+//             comment: 'Cool'
+//           }
+//         ]
+//       },
+
+//       {
+//         title: 'Completed',
+//         status: 'Completed',
+//         dueDate: '10/10/10',
+//         category: 'Front-End',
+//         points: 20,
+//         notes: 'create webpack config file',
+//         owner: 'Heather',
+//         creator: 'Someone else',
+//         comments: [
+//           {
+//             user: 'Commenter1',
+//             comment: 'Cool'
+//           },
+//           {
+//             user: 'Commenter2',
+//             comment: 'Cool'
+//           }
+//         ]
+//       }
+
+
