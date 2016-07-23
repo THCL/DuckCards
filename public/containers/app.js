@@ -7,7 +7,7 @@ import Tasks from '../components/Tasks.js';
 import Navbar from '../components/Navbar.js';
 
 //socketio stuff
-
+import axios from 'axios'
 
 class App extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class App extends Component {
     //render navbar
 
     return (
-
+        //passing in promise
         <Tasks task={task} />
 
     )
@@ -56,27 +56,33 @@ class App extends Component {
 
 }
 
+//returns a promise
+const task = axios.get('http://localhost:3000/tasks');
 
-const task = {
-  title: 'Set up front-end',
-  status: 'In Progress',
-  dueDate: '10/10/10',
-  category: 'Front-End',
-  points: 20,
-  notes: 'create webpack config file',
-  owner: 'Heather',
-  creator: 'Someone else',
-  comments: [
-    {
-      user: 'Joe',
-      comment: 'Cool'
-    },
-    {
-      user: 'Joe',
-      comment: 'Cool'
-    }
-  ]
-}
+// [
+// {
+//   title: 'Set up front-end',
+//   status: 'In Progress',
+//   dueDate: '10/10/10',
+//   category: 'Front-End',
+//   points: 20,
+//   notes: 'create webpack config file',
+//   owner: 'Heather',
+//   creator: 'Someone else',
+//   comments: [
+//     {
+//       user: 'Joe',
+//       comment: 'Cool'
+//     },
+//     {
+//       user: 'Joe',
+//       comment: 'Cool'
+//     }
+//   ]
+// }
+// ]
+
+console.log(task);
 
 
 // App.propTypes = {
