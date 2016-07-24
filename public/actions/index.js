@@ -40,5 +40,24 @@
 //   }
 // }
 
+export function changeStatus(status) {
+  return {
+    type: 'CHANGE_STATUS',
+    status
+  }
+}
+
+export function addTask(task) {
+  return {
+    type: 'ADD_TASK',
+    title
+    dueDate
+    category
+    points
+    owner
+    creator
+  }
+}
+
 
 
