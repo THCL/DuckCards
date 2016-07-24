@@ -28,7 +28,7 @@ class Tasks extends React.Component {
         title: 'To Do',
         status: 'To Do',
         dueDate: '10/10/10',
-        category: 'Front-End',
+        category: 'Back-End',
         points: 20,
         notes: 'create sadf config file',
         owner: 'dfd',
@@ -48,7 +48,7 @@ class Tasks extends React.Component {
         title: 'To Do',
         status: 'To Do',
         dueDate: '10/10/10',
-        category: 'Front-End',
+        category: 'Workflow',
         points: 20,
         notes: 'create webpack config file',
         owner: 'Heather',
@@ -351,6 +351,16 @@ class Tasks extends React.Component {
     ];
 
     function filterTasks(tasks) {
+      // store.filteredView represents the view that the user has clicked.
+      // depending on that, the items in
+      // 'tasks' will be different for each category
+      if (store.filteredView === 'All') {
+        tasks = tasks;
+      } else {
+        tasks = tasks.filter(function(task) {
+          return task.category === store.filteredView;
+        });
+      }
       return tasks.reduce(function(memo, task) {
         if (task.status === "To Do") {
           memo.todos.push(task);

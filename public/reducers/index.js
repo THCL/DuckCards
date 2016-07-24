@@ -26,6 +26,42 @@ function tasks(state = {
   }
 }
 
-const rootReducer = tasks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function view(state = 'ALL', action) {
+  switch (action.type) {
+    case 'FILTER_VIEW':
+      return {
+        filteredView: action.filter
+      }
+    default:
+      return state
+  }
+}
+
+const rootReducer = combineReducers({
+  task,
+  tasks,
+  view
+})
 
 export default rootReducer
